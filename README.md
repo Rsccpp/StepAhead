@@ -1,4 +1,4 @@
-l# 🎯 StepAhead 🤖
+# 🎯 StepAhead 🤖
 
 AI-powered career guidance platform that helps students and professionals **explore career paths, identify skill gaps, and build personalized learning roadmaps**.  
 Built with **Node.js**, **React**, and **OpenAI API** — think of it as your **AI-driven career mentor**.
