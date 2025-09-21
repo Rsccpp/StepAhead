@@ -4,8 +4,11 @@ AI-powered career guidance platform that helps students and professionals **expl
 Built with **Node.js**, **React**, and **OpenAI API** — think of it as your **AI-driven career mentor**.
 
 ---
+
 ## 📍 Live Demo
 🔗 [StepAhead](https://stepahead-96d2.onrender.com/)
+
+---
 
 ## ✨ Features
 
@@ -54,5 +57,6 @@ DB_NAME=career_advisor
 ```bash
 npm run server
 ```
+
 
 
