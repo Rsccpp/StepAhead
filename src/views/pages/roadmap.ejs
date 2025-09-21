@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+<body class="p-4 md:p-8">
+    <div class="mx-auto">
+        <%- include('../partials/app-header') %>
+        <div class="space-y-8">
+            <%- include('../partials/navigation') %>
+            
+            <!-- 3. Skill Roadmap Screen -->
+            <div id="screen-roadmap" class="wireframe-card">
+                <h2 class="text-xl font-bold mb-4">Your Skill Roadmap to: <span class="text-blue-600">Data Scientist</span></h2>
+                <div class="relative pl-8">
+                    <!-- Vertical line -->
+                    <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-gray-300"></div>
+                    <!-- Roadmap Item 1 -->
+                    <div class="relative mb-6">
+                        <div class="absolute -left-5 top-1.5 w-5 h-5 bg-green-500 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold">Python for Data Science</h4>
+                        <p class="text-sm text-gray-500">Course - Completed</p>
+                    </div>
+                    <!-- Roadmap Item 2 -->
+                    <div class="relative mb-6">
+                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-blue-500 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold">SQL Fundamentals</h4>
+                        <p class="text-sm text-gray-500">Course - In Progress</p>
+                    </div>
+                    <!-- Roadmap Item 3 -->
+                    <div class="relative mb-6">
+                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-gray-400 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold">Sentiment Analysis Project</h4>
+                        <p class="text-sm text-gray-500">Project - Up Next</p>
+                    </div>
+                     <!-- Roadmap Item 4 -->
+                    <div class="relative">
+                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-gray-400 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold">Apply for Internships</h4>
+                        <p class="text-sm text-gray-500">Milestone</p>
+                    </div>
+                </div>
+                 <a href="/resources" class="wireframe-cta mt-6 text-sm w-full sm:w-auto inline-block">Find Resources</a>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer') %>

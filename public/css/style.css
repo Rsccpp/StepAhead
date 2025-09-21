@@ -1,0 +1,69 @@
+/* Simple wireframe styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F3F4F6; /* light gray */
+    color: #374151; /* dark gray */
+    padding-bottom: 5rem; /* Space for fixed bottom nav on mobile */
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding-bottom: 0;
+    }
+}
+
+.wireframe-card {
+    background-color: #FFFFFF;
+    border: 2px solid #D1D5DB; /* medium gray */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.wireframe-input {
+    width: 100%;
+    border: 2px solid #E5E7EB; /* light gray border */
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #F9FAFB;
+}
+.wireframe-cta {
+    background-color: #3B82F6; /* blue-500 */
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.wireframe-cta:hover {
+    background-color: #2563EB; /* blue-600 */
+}
+.wireframe-secondary-btn {
+    background-color: #E5E7EB;
+    color: #374151;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #6B7280;
+    cursor: pointer;
+}
+.nav-item.active {
+    color: #3B82F6;
+}
+
+/* --- Modal Styles --- */
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 50;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    max-height: 90vh;
+}

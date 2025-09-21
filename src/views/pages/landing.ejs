@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - StepAhead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Added dummy content to show the popup over a page */
+            background-color: #f1f5f9; /* slate-100 */
+            height: 200vh;
+        }
+        
+        /* Custom scrollbar for a cleaner look */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 3px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* slate-400 */
+        }
+
+        /* Animations for popup and messages */
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .message {
+            animation: slideInUp 0.3s ease-out;
+        }
+        .chat-popup {
+            animation: slideInUp 0.4s ease-out;
+        }
+        .fab-button {
+             animation: fadeIn 0.4s ease-out;
+        }
+
+        /* Typing indicator animation */
+        .typing-dot {
+            animation: typing-bubble 1.5s infinite;
+        }
+        @keyframes typing-bubble {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+
+
+        /* A custom gradient for a more unique look */
+        .hero-gradient {
+            background-color: #0f172a; /* fallback slate-900 */
+            background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 52% 99%, hsla(355, 98%, 71%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 10% 29%, hsla(256, 96%, 68%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.1) 0px, transparent 50%), 
+                              radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.1) 0px, transparent 50%);
+        }
+
+        /* Subtle glow effect for the image container */
+        .image-glow {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                Step<span class="text-blue-600">Ahead</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/login" class="text-gray-600 hover:text-blue-600 font-semibold">Login</a>
+                <a href="/signup"
+                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Sign Up
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+       <section class="hero-gradient text-white overflow-hidden">
+        <div class="container mx-auto px-6 py-20 md:py-32">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Column: Text Content -->
+                <div class="text-center md:text-left">
+                    <span class="inline-block bg-blue-500/10 text-blue-400 font-semibold px-4 py-1 rounded-full text-sm mb-4">
+                        ✨ AI-Powered Career Guidance
+                    </span>
+                    <h1 class="text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-6 leading-tight">
+                        Find Your Future Career Path, Today.
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto md:mx-0">
+                        Our AI platform provides personalized guidance, dynamic skill roadmaps, and real-time job market insights to help you build a successful career.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                        <a href="signup"
+                           class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                            <span>Get Started for Free</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#learn-more"
+                           class="w-full sm:w-auto text-slate-300 font-medium py-3 px-6 rounded-full hover:bg-slate-800 transition-colors duration-300">
+                           Learn More
+                        </a>
+                    </div>
+                    <p class="mt-8 text-sm text-slate-400">Trusted by over 10,000+ aspiring professionals.</p>
+                </div>
+
+                <!-- Right Column: Visual Element -->
+                <div class="hidden md:block">
+                    <div class="relative w-full max-w-md mx-auto">
+                        <img src="https://placehold.co/600x600/1e293b/ffffff?text=Abstract+AI+Graphic" 
+                             alt="An abstract graphic representing AI-powered career path analysis" 
+                             class="rounded-2xl w-full h-full object-cover relative z-10 border border-slate-700 image-glow">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">How Our Platform Helps You Succeed</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <!-- Feature 1 -->
+                <div>
+                    <div
+                        class="bg-blue-100 text-blue-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Personalized Career Guidance</h3>
+                    <p class="text-gray-600">Get career recommendations based on your unique skills, interests, and
+                        goals.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div>
+                    <div
+                        class="bg-green-100 text-green-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 13V7">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Dynamic Skill Roadmaps</h3>
+                    <p class="text-gray-600">Follow a step-by-step learning path with courses, projects, and milestones.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div>
+                    <div
+                        class="bg-purple-100 text-purple-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Real-Time Job Market Insights</h3>
+                    <p class="text-gray-600">Stay ahead with data on trending skills, salary ranges, and career growth.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div>
+                    <div
+                        class="bg-orange-100 text-orange-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI Gap Analysis</h3>
+                    <p class="text-gray-600">Upload your resume or LinkedIn profile to identify missing skills for your
+                        target career.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div>
+                    <div
+                        class="bg-teal-100 text-teal-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Resource & Scholarship Matching</h3>
+                    <p class="text-gray-600">Find free courses, government programs, and scholarships tailored to your
+                        profile and goals.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div>
+                    <div
+                        class="bg-red-100 text-red-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Interactive Dashboard</h3>
+                    <p class="text-gray-600">Visualize your career journey, track your progress, and see your next
+                        actionable steps.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div>
+                    <div
+                        class="bg-gray-100 text-gray-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Career Simulation & Mentorship</h3>
+                    <p class="text-gray-600">Compare "what-if" scenarios for different careers and connect with alumni
+                        for guidance.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                   <div>
+                    <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Community & Support</h3>
+                    <p class="text-gray-600">Connect with peers in forums, access help articles, and get support from our dedicated team.</p>
+                </div>
+
+                <!-- Feature 9 -->
+                  <div>
+                    <div class="bg-gray-100 text-gray-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.546-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Career Simulation </h3>
+                    <p class="text-gray-600">Compare "what-if" scenarios for different careers and connect with alumni for guidance.</p>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Professional Experience / Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Trusted by Ambitious Professionals</h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">See how students and young professionals have transformed their careers with our guidance.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Experience Card 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-100 text-left transition-transform transform hover:-translate-y-2">
+                    <svg class="w-10 h-10 text-indigo-500 mb-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15v1a1 1 0 001 1h12a1 1 0 001-1v-1a1 1 0 00-.293-.707L16 11.586V8a6 6 0 00-6-6zM8.05 17a2 2 0 013.9 0H8.05z"></path></svg>
+                    <p class="text-gray-600 mb-6 italic">"The roadmap feature was a game-changer. It broke down the daunting task of becoming a Data Scientist into manageable steps. I knew exactly what to learn next."</p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=AK" alt="Avatar of Anjali Kumar">
+                        <div>
+                            <p class="font-bold text-gray-800">Anjali Kumar</p>
+                            <p class="text-sm text-gray-500">Data Scientist @ TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Card 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-100 text-left transition-transform transform hover:-translate-y-2">
+                    <svg class="w-10 h-10 text-indigo-500 mb-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15v1a1 1 0 001 1h12a1 1 0 001-1v-1a1 1 0 00-.293-.707L16 11.586V8a6 6 0 00-6-6zM8.05 17a2 2 0 013.9 0H8.05z"></path></svg>
+                    <p class="text-gray-600 mb-6 italic">"As a final year student, I was lost. StepAhead analyzed my resume and instantly showed me the skill gaps for my dream role. The scholarship suggestions were a huge bonus!"</p>
+                    <div class="flex items-center">
+                         <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=RS" alt="Avatar of Rohan Singh">
+                        <div>
+                            <p class="font-bold text-gray-800">Rohan Singh</p>
+                            <p class="text-sm text-gray-500">Cybersecurity Intern @ SecureNet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Card 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-100 text-left transition-transform transform hover:-translate-y-2">
+                   <svg class="w-10 h-10 text-indigo-500 mb-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15v1a1 1 0 001 1h12a1 1 0 001-1v-1a1 1 0 00-.293-.707L16 11.586V8a6 6 0 00-6-6zM8.05 17a2 2 0 013.9 0H8.05z"></path></svg>
+                    <p class="text-gray-600 mb-6 italic">"The real-time job market insights are incredible. I tailored my final year project based on the trending skills shown and landed multiple interview calls."</p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E2E8F0/4A5568?text=SP" alt="Avatar of Sneha Patil">
+                        <div>
+                            <p class="font-bold text-gray-800">Sneha Patil</p>
+                            <p class="text-sm text-gray-500">Incoming SDE @ FinSolutions</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Popup Container -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end z-50">
+        
+        <!-- Chatbot Window -->
+        <div id="chat-popup" class="hidden w-full max-w-md mx-auto chat-popup">
+            <div id="chatbot-container" class="bg-white rounded-2xl shadow-2xl flex flex-col h-[70vh] max-h-[600px]">
+                
+                <!-- Header -->
+                <div class="bg-slate-800 text-white p-4 rounded-t-2xl flex items-center justify-between shadow-lg">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
+                            <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold">StepAhead Career Assistant</h2>
+                            <div class="flex items-center space-x-1.5">
+                                <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+                                <p class="text-xs text-slate-300">Online</p>
+                            </div>
+                        </div>
+                    </div>
+                     <button id="close-chat" class="text-slate-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+
+                <!-- Messages Area -->
+                <div id="chat-messages" class="chat-messages flex-1 p-6 overflow-y-auto bg-slate-50">
+                    <div class="message mb-4 flex">
+                        <div class="flex-shrink-0 mr-3">
+                             <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-sm">AI</div>
+                        </div>
+                        <div class="bg-slate-200 text-slate-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                            <p>Hello! I'm your AI Career Assistant. How can I help you plan your future today?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="p-4 bg-white border-t border-slate-200 rounded-b-2xl">
+                    <form id="chat-form" class="flex items-center space-x-3">
+                        <input type="text" id="chat-input" placeholder="Ask a question..."
+                               class="flex-1 w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow">
+                        <button type="submit" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button (FAB) to open chat -->
+        <button id="open-chat-fab" class="fab-button mt-4 bg-blue-600 text-white w-16 h-16 rounded-full shadow-xl hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-300">
+            <!-- Chat Icon -->
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.65-3.8a9 9 0 1 1 3.4 2.9l-5.05.9"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path><path d="M15 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path><path d="M12 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path></svg>
+        </button>
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            
+            <!-- Main Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                
+                <!-- Brand & Description Section -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xl font-bold text-white mb-4">StepAhead</h3>
+                    <p class="max-w-xs text-gray-400">Your AI-powered guide to a successful and fulfilling career. We provide the tools and insights you need to navigate the future of work.</p>
+                </div>
+                
+                <!-- Navigation Links: Product -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase mb-4">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">For Students</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">For Universities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Navigation Links: Company -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Navigation Links: Resources -->
+                 <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase mb-4">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider and Social Media Section -->
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-sm text-gray-400 mb-4 md:mb-0">&copy; 2025 StepAhead. All Rights Reserved.</p>
+                
+                <div class="flex space-x-6">
+                    <!-- Twitter Icon -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Chatboat Script -->
+     <script>
+        // --- CHATBOT POPUP ---
+        const openChatFab = document.getElementById('open-chat-fab');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatPopup = document.getElementById('chat-popup');
+
+        openChatFab.addEventListener('click', () => {
+            chatPopup.classList.remove('hidden');
+            openChatFab.classList.add('hidden');
+        });
+
+        closeChatBtn.addEventListener('click', () => {
+            chatPopup.classList.add('hidden');
+            openChatFab.classList.remove('hidden');
+        });
+
+        // --- CHATBOT LOGIC  ---
+        const chatMessages = document.getElementById('chat-messages');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userInput = chatInput.value.trim();
+            if (userInput === '') return;
+
+            addMessage(userInput, 'user');
+            chatInput.value = '';
+            
+            showTypingIndicator();
+            setTimeout(() => {
+                removeTypingIndicator();
+                const botResponse = getBotResponse(userInput);
+                addMessage(botResponse, 'bot');
+            }, 1500 + Math.random() * 500);
+        });
+
+        function addMessage(text, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'mb-4', 'flex');
+
+            if (sender === 'user') {
+                messageElement.classList.add('justify-end');
+                messageElement.innerHTML = `
+                    <div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
+                        <p>${text}</p>
+                    </div>
+                `;
+            } else { 
+                messageElement.innerHTML = `
+                    <div class="flex-shrink-0 mr-3">
+                         <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-sm">AI</div>
+                    </div>
+                    <div class="bg-slate-200 text-slate-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                        <p>${text}</p>
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageElement);
+            scrollToBottom();
+        }
+        
+        function showTypingIndicator() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.classList.add('message', 'mb-4', 'flex');
+            typingIndicator.innerHTML = `
+                <div class="flex-shrink-0 mr-3">
+                     <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-sm">AI</div>
+                </div>
+                <div class="bg-slate-200 text-slate-800 p-3 rounded-r-lg rounded-bl-lg flex items-center space-x-1">
+                    <span class="typing-dot w-2 h-2 bg-slate-500 rounded-full" style="animation-delay: 0s;"></span>
+                    <span class="typing-dot w-2 h-2 bg-slate-500 rounded-full" style="animation-delay: 0.2s;"></span>
+                    <span class="typing-dot w-2 h-2 bg-slate-500 rounded-full" style="animation-delay: 0.4s;"></span>
+                </div>
+            `;
+            chatMessages.appendChild(typingIndicator);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        function getBotResponse(userInput) {
+            const lowerInput = userInput.toLowerCase();
+            if (lowerInput.includes('skill') || lowerInput.includes('learn')) {
+                return "A great skill to learn for many tech roles is Python. It's versatile and in high demand. Other valuable skills include cloud computing (AWS, Azure) and data analysis with SQL.";
+            } else if (lowerInput.includes('career') || lowerInput.includes('path')) {
+                return "To suggest a career path, could you tell me more about your interests? For example, do you enjoy problem-solving, creative design, or working with data?";
+            } else if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
+                return "Hello there! What career goals are on your mind today?";
+            } else {
+                return "That's an interesting question. To give you the best advice, could you provide a bit more context about your current skills and long-term goals?";
+            }
+        }
+
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+
+</body>
+
+</html>

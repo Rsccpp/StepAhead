@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<body class="p-4 md:p-8">
+    <div class="mx-auto">
+        <%- include('../partials/app-header') %>
+        <div class="space-y-8">
+            <%- include('../partials/navigation') %>
+            
+            <div id="screen-dashboard" class="wireframe-card border-4 border-blue-300">
+                <h2 class="text-xl font-bold mb-4">Progress Tracker</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
+                        <div class="text-3xl font-bold text-blue-600">85%</div>
+                        <div class="text-sm font-semibold">Profile Strength</div>
+                    </div>
+                    <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
+                        <div class="text-3xl font-bold text-blue-600 flex items-center gap-2">15 <i data-lucide="flame"></i></div>
+                        <div class="text-sm font-semibold">Day Learning Streak</div>
+                    </div>
+                    <div class="border-2 border-dashed rounded-lg p-4">
+                        <h4 class="font-bold text-center">Badges Earned</h4>
+                        <div class="flex justify-center gap-4 mt-2">
+                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="code"></i></div>
+                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="brain-circuit"></i></div>
+                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="star"></i></div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer') %>

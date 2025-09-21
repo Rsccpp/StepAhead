@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-md p-4">
+        <div class="bg-white shadow-xl rounded-2xl px-8 pt-6 pb-8 mb-4">
+            <div class="mb-8 text-center">
+                <a href="/" class="text-2xl font-bold text-gray-800">Step<span class="text-blue-600">Ahead</span></a>
+                <h1 class="text-2xl font-bold text-gray-900 mt-4">Login to Your Account</h1>
+                <p class="text-gray-500">Welcome back!</p>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Email</label>
+                <input class="wireframe-input" id="username" type="email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                <input class="wireframe-input" id="password" type="password" placeholder="******************" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <!-- This button simulates a successful login by redirecting to the profile page -->
+                <a href="/profile" class="wireframe-cta w-full">Sign In</a>
+            </div>
+             <p class="text-center text-gray-500 text-sm mt-6">
+                Don't have an account? <a href="/signup" class="font-bold text-blue-600 hover:text-blue-800">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+<%- include('../partials/footer') %>
