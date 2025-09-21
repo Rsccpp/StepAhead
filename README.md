@@ -5,7 +5,7 @@ Built with **Node.js**, **React**, and **OpenAI API** — think of it as your **
 
 ---
 ## 📍 Live Demo
-🔗 [Play Simon Says]([https://stepahead-96d2.onrender.com/])
+🔗 [StepAhead](https://stepahead-96d2.onrender.com/)
 
 ## ✨ Features
 
@@ -54,4 +54,5 @@ DB_NAME=career_advisor
 ```bash
 npm run server
 ```
+
 
