@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepAhead Career Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple scrollbar styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="fixed bottom-6 right-6 flex flex-col items-end z-50">
+        
+        <div id="chat-popup" class="hidden w-full max-w-md mx-auto">
+            <div id="chatbot-container" class="bg-white rounded-2xl shadow-2xl flex flex-col h-[70vh] max-h-[600px]">
+                
+                <div class="bg-slate-800 text-white p-4 rounded-t-2xl flex items-center justify-between shadow-lg">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
+                            <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold">StepAhead Career Assistant</h2>
+                            <div class="flex items-center space-x-1.5">
+                                <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+                                <p class="text-xs text-slate-300">Online</p>
+                            </div>
+                        </div>
+                    </div>
+                     <button id="close-chat" class="text-slate-300 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+
+                <div id="chat-messages" class="chat-messages flex-1 p-6 overflow-y-auto bg-slate-50">
+                    <div class="message mb-4 flex">
+                        <div class="flex-shrink-0 mr-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-sm">AI</div>
+                        </div>
+                        <div class="bg-slate-200 text-slate-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                            <p>Hello! I'm your AI Career Assistant. How can I help you plan your future today?</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="p-4 bg-white border-t border-slate-200 rounded-b-2xl">
+                    <form id="chat-form" class="flex items-center space-x-3">
+                        <input type="text" id="chat-input" placeholder="Ask a question..."
+                               class="flex-1 w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" autocomplete="off">
+                        <button type="submit" id="submitBtn" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <button id="open-chat-fab" class="mt-4 bg-blue-600 text-white w-16 h-16 rounded-full shadow-xl hover:bg-blue-700 transition-all transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-blue-300">
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.65-3.8a9 9 0 1 1 3.4 2.9l-5.05.9"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path><path d="M15 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path><path d="M12 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z"></path></svg>
+        </button>
+
+    </div>
+
+    <script src="/js/chat.js"></script>
+</body>
+</html>
