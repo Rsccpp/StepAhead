@@ -1,27 +1,42 @@
 <%- include('../partials/header') %>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="w-full max-w-md p-4">
-        <div class="bg-white shadow-xl rounded-2xl px-8 pt-6 pb-8 mb-4">
-             <div class="mb-8 text-center">
-                <a href="/" class="text-2xl font-bold text-gray-800">Step<span class="text-blue-600">Ahead</span></a>
-                <h1 class="text-2xl font-bold text-gray-900 mt-4">Create an Account</h1>
-                <p class="text-gray-500">Start your career journey with us!</p>
+
+    <body class="bg-gray-100 flex items-center justify-center h-screen">
+        <div class="w-full max-w-md p-4">
+            <div class="bg-white shadow-xl rounded-2xl px-8 pt-6 pb-8 mb-4">
+                <div class="mb-8 text-center">
+                    <a href="/" class="text-2xl font-bold text-gray-800">Step<span
+                            class="text-blue-600">Ahead</span></a>
+                    <h1 class="text-2xl font-bold text-gray-900 mt-4">Create an Account</h1>
+                    <p class="text-gray-500">Start your career journey with us!</p>
+                </div>
+
+                <form method="POST" action="/stepAhead/signup" class="space-y-4">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" >Email</label>
+                        <input class="wireframe-input"  type="email" placeholder="your.email@example.com" name="email"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" >Password</label>
+                        <input class="wireframe-input"  type="password" placeholder="******************" name="password"
+                            required>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <button class="wireframe-cta w-full">
+                            Create Account
+                        </button>
+                        <!-- This button simulates a successful signup by redirecting to the profile page -->
+                        <!-- <a href="/profile" class="wireframe-cta w-full">Create Account</a> -->
+                    </div>
+                </form>
+
+                <p class="text-center text-gray-500 text-sm mt-6">
+                    Already have an account? <a href="/login"
+                        class="font-bold text-blue-600 hover:text-blue-800">Login</a>
+                </p>
             </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-                <input class="wireframe-input" id="email" type="email" placeholder="your.email@example.com" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
-                <input class="wireframe-input" id="password" type="password" placeholder="******************" required>
-            </div>
-            <div class="flex items-center justify-between">
-                 <!-- This button simulates a successful signup by redirecting to the profile page -->
-                <a href="/profile" class="wireframe-cta w-full">Create Account</a>
-            </div>
-             <p class="text-center text-gray-500 text-sm mt-6">
-                Already have an account? <a href="/login" class="font-bold text-blue-600 hover:text-blue-800">Login</a>
-            </p>
+
+            <p> <%= error %></p>
         </div>
-    </div>
-<%- include('../partials/footer') %>
+        <%- include('../partials/footer') %>
