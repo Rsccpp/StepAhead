@@ -13,13 +13,17 @@ const userSchema = new mongoose.Schema({
         type : [String],
         required : true
     },
-    Interests : {
+    interests : {
         type : [String],
         required : true
     },
     location : {
         type : String,
         required : true
+    },
+    avatarUrl : {
+        type : String,
+        default : "/default-avatar.png"
     }
 });
 

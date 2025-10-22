@@ -1,32 +1,121 @@
 <%- include('../partials/header') %>
 
-<body class="p-4 md:p-8">
+  <body class="p-4 md:p-8">
     <div class="mx-auto">
-        <%- include('../partials/app-header') %>
-        <div class="space-y-8">
-            <%- include('../partials/navigation') %>
-            
-            <div id="screen-dashboard" class="wireframe-card border-4 border-blue-300">
-                <h2 class="text-xl font-bold mb-4">Progress Tracker</h2>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
-                        <div class="text-3xl font-bold text-blue-600">85%</div>
-                        <div class="text-sm font-semibold">Profile Strength</div>
-                    </div>
-                    <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
-                        <div class="text-3xl font-bold text-blue-600 flex items-center gap-2">15 <i data-lucide="flame"></i></div>
-                        <div class="text-sm font-semibold">Day Learning Streak</div>
-                    </div>
-                    <div class="border-2 border-dashed rounded-lg p-4">
-                        <h4 class="font-bold text-center">Badges Earned</h4>
-                        <div class="flex justify-center gap-4 mt-2">
-                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="code"></i></div>
-                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="brain-circuit"></i></div>
-                             <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="star"></i></div>
-                        </div>
-                    </div>
-                 </div>
+      <%- include('../partials/app-header') %>
+        <%- include('../partials/navigation') %>
+
+
+
+          <div id="screen-dashboard" class="wireframe-card border-4 border-blue-300 bg-white rounded-2xl shadow-xl p-8">
+
+            <!-- Header -->
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
+              <i data-lucide="layout-dashboard" class="text-blue-600"></i>
+              Dashboard
+            </h2>
+
+            <!-- Profile Overview -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+              <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-300">
+                  <% if (profile.avatarUrl) { %>
+                    <img src="<%= profile.avatarUrl %>" alt="Avatar" class="w-full h-full object-cover" />
+                    <% } else { %>
+                      <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+                        <i data-lucide="user" class="w-10 h-10 text-gray-600"></i>
+                      </div>
+                      <% } %>
+                </div>
+
+
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900">
+                    <%= profile.name %>
+                  </h3>
+                  <p class="text-gray-600">
+                    <%= profile.education %>
+                  </p>
+                  <p class="text-gray-600">📍<%= profile.location %>
+                  </p>
+
+                  <div class="mt-3 flex flex-wrap gap-2">
+
+                    <% for(let skill of profile.skills) { %>
+                      <span class="bg-blue-100 text-blue-700 px-3 py-1 text-sm rounded-full">
+                        <%= skill %>
+                      </span>
+                      <% } %>
+
+                  </div>
+
+                  <p class="mt-3 text-gray-500 text-sm">
+                    <% for(let skill of profile.interests) { %>
+                      Interests : <%= skill %> &nbsp;
+                        <% } %>
+                  </p>
+                </div>
+              </div>
             </div>
-        </div>
+
+            <!-- Progress Tracker -->
+            <div>
+              <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center gap-2">
+                <i data-lucide="bar-chart-3" class="text-blue-600"></i>
+                Progress Tracker
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
+                  <div class="text-3xl font-bold text-blue-600">85%</div>
+                  <div class="text-sm font-semibold">Profile Strength</div>
+                </div>
+
+                <div class="border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center">
+                  <div class="text-3xl font-bold text-blue-600 flex items-center gap-2">
+                    15 <i data-lucide="flame"></i>
+                  </div>
+                  <div class="text-sm font-semibold">Day Learning Streak</div>
+                </div>
+
+                <div class="border-2 border-dashed rounded-lg p-4">
+                  <h4 class="font-bold text-center">Badges Earned</h4>
+                  <div class="flex justify-center gap-4 mt-2">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i
+                        data-lucide="code"></i></div>
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i
+                        data-lucide="brain-circuit"></i></div>
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i
+                        data-lucide="star"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selected Courses -->
+            <div class="mt-10">
+              <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center gap-2">
+                <i data-lucide="book-open" class="text-blue-600"></i>
+                Selected Courses
+              </h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                  <h4 class="font-bold text-blue-700">Artificial Intelligence</h4>
+                  <p class="text-sm text-gray-500 mt-1">Advanced concepts of neural networks and ML.</p>
+                </div>
+                <div class="p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                  <h4 class="font-bold text-blue-700">Full Stack Web Development</h4>
+                  <p class="text-sm text-gray-500 mt-1">Hands-on training in MERN stack.</p>
+                </div>
+                <div class="p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition">
+                  <h4 class="font-bold text-blue-700">Data Structures & Algorithms</h4>
+                  <p class="text-sm text-gray-500 mt-1">Problem solving and efficiency optimization.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
     </div>
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
