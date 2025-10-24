@@ -10,6 +10,27 @@ const users = require("./models/users");
 const multer = require("multer"); // for handling file uploads
 const Roadmap = require('./models/roadmap');
 
+// For deployment -- mongo DB connection string
+const dotenv = require("dotenv");
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch(err => console.error("❌ MongoDB error:", err));
+
+// Connect to MongoDB
+// main()
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((err) => {
+//     console.error("Error connecting to MongoDB:", err);
+//   });
+
+// async function main() {
+//   await mongoose.connect("mongodb://127.0.0.1:27017/StepAhead");
+// }
+
 // Set storage options
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -45,18 +66,6 @@ app.use(
   })
 );
 
-// Connect to MongoDB
-main()
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-  });
-
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/StepAhead");
-}
 
 const viewRoutes = require("./src/routes/viewRoutes");
 
@@ -152,6 +161,7 @@ app.get("/pages/recommendations", (req, res) => {
 app.post("/pages/recommendations", (req, res) => {
    res.render("pages/recommendations", { title: "Recommendations" });
 });
+
 
 // Roadmap page route
 app.get("/pages/roadmap", (req, res) => {
@@ -273,3 +283,4 @@ app.post("/pages/profile", upload.single("avatarUrl"), async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
