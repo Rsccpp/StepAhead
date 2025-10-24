@@ -5,11 +5,6 @@ Built with **Node.js**, **React**, and **OpenAI API** — think of it as your **
 
 ---
 
-## 📍 Live Demo
-🔗 [StepAhead](https://stepahead-96d2.onrender.com/)
-
----
-
 ## ✨ Features
 
 - 🔍 **Personalized Career Recommendations** – Suggests career options based on user profile, interests, and skills.  
@@ -57,6 +52,7 @@ DB_NAME=career_advisor
 ```bash
 npm run server
 ```
+
 
 
 
