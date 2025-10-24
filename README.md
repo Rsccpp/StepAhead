@@ -24,7 +24,7 @@ Built with **Node.js**, **React**, and **OpenAI API** — think of it as your **
 
 - **Frontend:** React, HTML, CSS, JavaScript  
 - **Backend:** Node.js (Express)  
-- **Database:** MySQL  
+- **Database:** MongoDB
 - **AI/ML:** OpenAI API, Google Cloud Vertex AI  
 - **Deployment:** Cloud-based hosting  
 
@@ -57,6 +57,7 @@ DB_NAME=career_advisor
 ```bash
 npm run server
 ```
+
 
 
 
