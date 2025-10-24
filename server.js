@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const signup = require("./models/signup");
 const users = require("./models/users");
 const multer = require("multer"); // for handling file uploads
+const Roadmap = require('./models/roadmap');
 
 // Set storage options
 const storage = multer.diskStorage({
@@ -114,7 +115,7 @@ app.get("/", (req, res) => {
 
 // Profile page route
 app.get("/pages/profile", (req, res) => {
-  res.render("pages/profile", { title: "Profile" });
+  res.render("pages/profile", { title: "Profile", error: null });
 });
 
 // dashboard page route
@@ -148,9 +149,26 @@ app.get("/pages/recommendations", (req, res) => {
   res.render("pages/recommendations", { title: "Recommendations" });
 });
 
+app.post("/pages/recommendations", (req, res) => {
+   res.render("pages/recommendations", { title: "Recommendations" });
+});
+
 // Roadmap page route
 app.get("/pages/roadmap", (req, res) => {
-  res.render("pages/roadmap", { title: "Roadmap" });
+   // list of career options
+  const roles = ["Data Scientist", "Web Developer", "AI Engineer"];
+  res.render("pages/roadmap", { roles, roadmap: null, title: "Roadmap" });
+});
+
+app.post('/pages/roadmap', async (req, res) => {
+  const { role } = req.body;
+
+  // fetch roadmap from DB
+  const roadmap = await Roadmap.findOne({ role });
+
+  // render the same page with roadmap items
+  const roles = ["Data Scientist", "Web Developer", "AI Engineer"];
+  res.render('pages/roadmap', { roles, roadmap, title: "Roadmap" });
 });
 
 // Handling users activity
@@ -175,7 +193,7 @@ app.post("/pages/signup", async (req, res) => {
 
     await newUser.save();
 
-    res.redirect("/pages/profile"), { title: "Profile" };
+    res.redirect("/pages/profile");
   } catch (error) {
     console.error("Error during signup:", error);
     res.status(500).send("Internal Server Error");
@@ -188,7 +206,7 @@ app.post("/pages/login", async (req, res) => {
     console.log(req.body);
     const { email, password } = req.body;
 
-    const existingUser = await signup.findOne({
+    const existingUser = await users.findOne({
       email: email,
       password: password,
     });
@@ -200,7 +218,7 @@ app.post("/pages/login", async (req, res) => {
       });
     }
 
-    res.redirect("/pages/profile"), { title: "Profile" };
+    res.redirect("/pages/dashboard");
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).send("Internal Server Error");
@@ -213,7 +231,16 @@ app.post("/pages/profile", upload.single("avatarUrl"), async (req, res) => {
   try {
     console.log("File info:", req.file);
     console.log(req.body);
-    const { name, education, skills, interests, location} = req.body;
+    const { name, education, skills, interests, location, email, password} = req.body;
+
+    const newEmail = await users.findOne({ email: email });
+
+    if (newEmail) {
+      return res.render("pages/profile", {
+        title: "Profile",
+        error: "Email already exists! Please use another one.",
+      });
+    }
 
     // Store image URL
     const avatarUrl = req.file ? `/uploads/${req.file.filename}` : null;
@@ -225,7 +252,9 @@ app.post("/pages/profile", upload.single("avatarUrl"), async (req, res) => {
       skills: skills.split(",").map(s => s.trim()),
       interests: interests.split(",").map(i => i.trim()),
       location,
-      avatarUrl
+      avatarUrl,
+      email,
+      password
     });
 
     await newProfile.save();

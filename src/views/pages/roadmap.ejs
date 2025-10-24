@@ -1,45 +1,42 @@
 <%- include('../partials/header') %>
+<%- include('../partials/app-header') %>
 
 <body class="p-4 md:p-8">
-    <div class="mx-auto">
-        <%- include('../partials/app-header') %>
-        <div class="space-y-8">
-            <%- include('../partials/navigation') %>
-            
-            <!-- 3. Skill Roadmap Screen -->
-            <div id="screen-roadmap" class="wireframe-card">
-                <h2 class="text-xl font-bold mb-4">Your Skill Roadmap to: <span class="text-blue-600">Data Scientist</span></h2>
-                <div class="relative pl-8">
-                    <!-- Vertical line -->
-                    <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-gray-300"></div>
-                    <!-- Roadmap Item 1 -->
-                    <div class="relative mb-6">
-                        <div class="absolute -left-5 top-1.5 w-5 h-5 bg-green-500 rounded-full border-4 border-white"></div>
-                        <h4 class="font-bold">Python for Data Science</h4>
-                        <p class="text-sm text-gray-500">Course - Completed</p>
-                    </div>
-                    <!-- Roadmap Item 2 -->
-                    <div class="relative mb-6">
-                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-blue-500 rounded-full border-4 border-white"></div>
-                        <h4 class="font-bold">SQL Fundamentals</h4>
-                        <p class="text-sm text-gray-500">Course - In Progress</p>
-                    </div>
-                    <!-- Roadmap Item 3 -->
-                    <div class="relative mb-6">
-                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-gray-400 rounded-full border-4 border-white"></div>
-                        <h4 class="font-bold">Sentiment Analysis Project</h4>
-                        <p class="text-sm text-gray-500">Project - Up Next</p>
-                    </div>
-                     <!-- Roadmap Item 4 -->
-                    <div class="relative">
-                         <div class="absolute -left-5 top-1.5 w-5 h-5 bg-gray-400 rounded-full border-4 border-white"></div>
-                        <h4 class="font-bold">Apply for Internships</h4>
-                        <p class="text-sm text-gray-500">Milestone</p>
-                    </div>
-                </div>
-                 <a href="/resources" class="wireframe-cta mt-6 text-sm w-full sm:w-auto inline-block">Find Resources</a>
+  <div class="mx-auto">
+    <%- include('../partials/navigation') %>
+    <h1 class="text-2xl font-bold mb-4">Select Your Career Goal</h1>
+
+    <!-- Career Selection Form -->
+    <form action="/pages/recommendations" method="POST" class="mb-8">
+      <select name="role" class="border p-2 rounded">
+        <% roles.forEach(function(r) { %>
+          <option value="<%= r %>"><%= r %></option>
+        <% }) %>
+      </select>
+      <button type="submit" class="ml-2 bg-blue-600 text-white px-4 py-2 rounded">Generate Roadmap</button>
+    </form>
+
+    <!-- Dynamic Roadmap -->pages/
+    <% if (roadmap) { %>
+      <div class="wireframe-card">
+        <h2 class="text-xl font-bold mb-4">Your Skill Roadmap to: <span class="text-blue-600"><%= roadmap.role %></span></h2>
+        <div class="relative pl-8">
+          <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-gray-300"></div>
+
+          <% roadmap.items.forEach(function(item) { %>
+            <div class="relative mb-6">
+              <div class="absolute -left-5 top-1.5 w-5 h-5 rounded-full border-4 border-white"
+                   style="background-color: <%= item.color %>"></div>
+              <h4 class="font-bold"><%= item.title %></h4>
+              <p class="text-sm text-gray-500"><%= item.type %> - <%= item.status %></p>
             </div>
+          <% }) %>
         </div>
-    </div>
-<%- include('../partials/chatbot') %>
+        <a href="/pages/resources" class="wireframe-cta mt-6 text-sm w-full sm:w-auto inline-block">Find Resources</a>
+      </div>
+    <% } %>
+  </div>
+</body>
+
+
 <%- include('../partials/footer') %>

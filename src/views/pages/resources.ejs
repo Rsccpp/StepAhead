@@ -6,22 +6,143 @@
         <div class="space-y-8">
             <%- include('../partials/navigation') %>
             
-            <div id="screen-resources" class="wireframe-card">
-                <h2 class="text-xl font-bold mb-4">Matched Resources & Scholarships</h2>
-                <div class="space-y-4">
-                    <div class="border-2 border-dashed rounded-lg p-4">
-                        <h3 class="font-bold">NPTEL: Data Science for Engineers</h3>
-                        <p class="text-sm text-gray-500">Free government course covering core concepts.</p>
-                        <button class="wireframe-secondary-btn mt-3 text-sm">View Course</button>
-                    </div>
-                     <div class="border-2 border-dashed rounded-lg p-4">
-                        <h3 class="font-bold">Digital India Scholarship</h3>
-                        <p class="text-sm text-gray-500">Scholarship for students pursuing tech education.</p>
-                        <button class="wireframe-secondary-btn mt-3 text-sm">Learn More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id="screen-resources" class="wireframe-card p-6">
+  <h2 class="text-3xl font-bold mb-8 text-center">Recommended Resources & Courses</h2>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Resource 1 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">NPTEL: Data Science for Engineers</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Free government course covering core concepts of data science, Python, and ML.
+      </p>
+      <a href="https://nptel.ac.in" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-blue-50 hover:bg-blue-100 text-center">
+        View Course
+      </a>
+    </div>
+
+    <!-- Resource 2 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">YouTube: Data Science Full Course</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Free YouTube course covering Python, Pandas, SQL, Machine Learning & Projects.
+      </p>
+      <a href="https://www.youtube.com" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-red-50 hover:bg-red-100 text-center">
+        Watch on YouTube
+      </a>
+    </div>
+
+    <!-- Resource 3 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">Kaggle: Data Science Tutorials</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Practical tutorials, datasets, and competitions for hands-on learning.
+      </p>
+      <a href="https://www.kaggle.com/learn" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-yellow-50 hover:bg-yellow-100 text-center">
+        Explore Kaggle
+      </a>
+    </div>
+
+    <!-- Resource 4 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">Digital India Scholarship</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Scholarship for students pursuing tech education and online courses.
+      </p>
+      <a href="#" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-green-50 hover:bg-green-100 text-center">
+        Learn More
+      </a>
+    </div>
+
+    <!-- Resource 5 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">Coursera: Machine Learning by Andrew Ng</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Popular ML course covering algorithms, regression, classification, and projects.
+      </p>
+      <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-purple-50 hover:bg-purple-100 text-center">
+        View Course
+      </a>
+    </div>
+
+    <!-- Resource 6 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">GeeksforGeeks: Data Science Tutorials</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Comprehensive articles and tutorials on Python, SQL, and ML concepts.
+      </p>
+      <a href="https://www.geeksforgeeks.org/data-science/" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-pink-50 hover:bg-pink-100 text-center">
+        Visit Site
+      </a>
+    </div>
+
+    <!-- Resource 7 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">Udemy: Python for Data Science</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Paid but affordable courses for beginners to advanced Python and ML.
+      </p>
+      <a href="https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-indigo-50 hover:bg-indigo-100 text-center">
+        View Course
+      </a>
+    </div>
+
+    <!-- Resource 8 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">edX: Data Science MicroMasters</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Free to audit online MicroMasters program with certificate option.
+      </p>
+      <a href="https://www.edx.org/micromasters/uc-san-diegox-data-science" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-teal-50 hover:bg-teal-100 text-center">
+        View Program
+      </a>
+    </div>
+
+    <!-- Resource 9 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">LinkedIn Learning: Data Science Path</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Step-by-step guided learning path on Data Science, Python, and ML tools.
+      </p>
+      <a href="https://www.linkedin.com/learning/paths/become-a-data-scientist" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-orange-50 hover:bg-orange-100 text-center">
+        View Path
+      </a>
+    </div>
+
+    <!-- Resource 10 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">FreeCodeCamp: Data Analysis Course</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Full free course covering Python, Pandas, Matplotlib, and real-world projects.
+      </p>
+      <a href="https://www.freecodecamp.org/learn/data-analysis-with-python/" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-yellow-50 hover:bg-yellow-100 text-center">
+        Start Learning
+      </a>
+    </div>
+
+    <!-- Resource 11 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">GitHub: Awesome Data Science</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Curated list of free resources, datasets, and projects for data science.
+      </p>
+      <a href="https://github.com/academic/awesome-datascience" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2 inline-block rounded bg-gray-50 hover:bg-gray-100 text-center">
+        Explore Repo
+      </a>
+    </div>
+
+    <!-- Resource 12 -->
+    <div class="border-2 border-dashed rounded-lg p-6 hover:shadow-lg flex flex-col justify-between">
+      <h3 class="font-bold text-lg mb-2">AI for Everyone - Andrew Ng (Coursera)</h3>
+      <p class="text-sm text-gray-500 mb-4">
+        Introductory course for non-technical learners about AI concepts and applications.
+      </p>
+      <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="wireframe-secondary-btn text-sm px-4 py-2_
+         inline-block rounded bg-blue-50 hover:bg-blue-100 text-center">    
+        View Course
+      </a>
+    </div>
     </div>
 <%- include('../partials/chatbot') %>
 <%- include('../partials/footer') %>

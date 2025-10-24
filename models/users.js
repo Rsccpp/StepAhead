@@ -24,6 +24,15 @@ const userSchema = new mongoose.Schema({
     avatarUrl : {
         type : String,
         default : "/default-avatar.png"
+    },
+    email : {
+        type : String,
+        required : true,
+        unique : true   
+    },
+    password : {
+        type : String,
+        required : true
     }
 });
 
